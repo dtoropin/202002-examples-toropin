@@ -72,7 +72,10 @@ function task6_1($str)
 
 function task6_2($file)
 {
-    error_reporting(0);
-    echo $result = file_get_contents($file) ?: 'File not found';
+    if (file_exists($file)) {
+        echo file_get_contents($file);
+    } else {
+        echo 'File not found';
+    }
     echo '<br>';
 }
