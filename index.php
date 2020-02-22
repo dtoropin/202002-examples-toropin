@@ -44,3 +44,4 @@ echo '<hr>';
 //task #6
 task6_1('Hello again!');
 task6_2('test.txt');
+task6_2('test1.txt');
