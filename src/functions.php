@@ -1,15 +1,11 @@
 <?php
-function task1(array $arrStr, bool $flag = false)
+function task1(array $arrStr, bool $glue = false)
 {
-    $str = '';
-    foreach ($arrStr as $item) {
-        if ($flag) {
-            $str .= "<p>$item</p>";
-        } else {
-            $str .= $item;
-        }
+    if ($glue) {
+        echo '<p>' . implode('</p><p>', $arrStr) . '</p>';
+    } else {
+        echo implode(' ', $arrStr);
     }
-    echo $str;
 }
 
 function task2(string $operation, float ...$args)
@@ -33,7 +29,8 @@ function task2(string $operation, float ...$args)
             break;
         }
     }
-    echo $result . '<br>';
+    echo is_string($result) ? $result : implode(" $operation ", $args) . ' = ' . $result;
+    echo '<br>';
 }
 
 function task3(int $row, int $col)
