@@ -1,15 +1,25 @@
 <?php
 
-class BaseTariff extends aTariffs
+class StudentTariff extends aTariffs
 {
-    protected $_tariffsName = 'Тариф базовый';
-    protected $_rateTime = 3;
-    protected $_rateDistance = 10;
+    protected $_tariffsName = 'Тариф студенческий';
+    protected $_rateTime = 1;
+    protected $_rateDistance = 4;
 
     public function __construct(int $distance, int $time, int $age, bool $gps = false, bool $driver = false)
     {
         $driver = false;
         parent::__construct($distance, $time, $age, $gps, $driver);
+    }
+
+    protected function _checkAge($age)
+    {
+        if ($age <= 18 || $age >= 25) {
+            die ("$this->_tariffsName, Вам $age, Вы не подходите по возрасту");
+        }
+        if ($age >= 18 && $age <= 21) {
+            $this->_magnification = 1.1;
+        }
     }
 
     public function printTotalPrice()
@@ -23,7 +33,7 @@ class BaseTariff extends aTariffs
         echo $this->_gps ? " + $this->_gps" : '';
         echo $this->_driver ? " + $this->_driver" : '';
         echo " = $this->_total;<br>";
-        echo "($this->_distance км по $this->_rateDistance рублей плюс $this->_time минут по $this->_rateTime рубля)";
+        echo "($this->_distance км по $this->_rateDistance рубля плюс $this->_time мин по $this->_rateTime рублю)";
         echo $this->_magnification ? " _ коэффициент молодежный $this->_magnification" : '';
         echo $this->_gps ? " плюс $this->_gps" : '';
         echo $this->_driver ? " плюс $this->_driver" : '';

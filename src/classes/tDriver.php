@@ -6,6 +6,6 @@ trait tDriver
     {
         $this->_services .= ', Дополнительный водитель';
         $this->_driver = 100;
-        $this->_total = 100;
+        $this->_total += $this->_driver;
     }
 }

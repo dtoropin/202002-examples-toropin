@@ -3,14 +3,32 @@ spl_autoload_register(function ($class_name) {
     include './src/classes/' . $class_name . '.php';
 });
 
-$baseTariffs = new BaseTariff(false, true);
-$baseTariffs->totalPrice(5, 60, 21);
+$tariff = new BaseTariff(5, 60, 27);
+$tariff->printTotalPrice();
 
-$baseTariffs = new BaseTariff(false, false);
-$baseTariffs->totalPrice(5, 60, 21);
+$tariff = new BaseTariff(5, 72, 27, true);
+$tariff->printTotalPrice();
 
-$baseTariffs = new BaseTariff(false, false);
-$baseTariffs->totalPrice(5, 60, 31);
+$tariff = new BaseTariff(5, 60, 21);
+$tariff->printTotalPrice();
 
-$baseTariffs = new BaseTariff(false, false);
-$baseTariffs->totalPrice(5, 60, 71);
+$tariff = new BaseTariff(5, 60, 31, false, true);
+$tariff->printTotalPrice();
+
+$tariff = new BaseTariff(5, 60, 31, true, true);
+$tariff->printTotalPrice();
+
+$tariff = new BaseTariff(5, 60, 21, false, true);
+$tariff->printTotalPrice();
+
+$tariff = new HoursTariff(5, 90, 27);
+$tariff->printTotalPrice();
+
+$tariff = new DayTariff(10, (1440 + 29), 27);
+$tariff->printTotalPrice();
+
+$tariff = new StudentTariff(5, 60, 22, false, true);
+$tariff->printTotalPrice();
+
+$tariff = new BaseTariff(5, 60, 71);
+$tariff->printTotalPrice();
