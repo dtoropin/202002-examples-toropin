@@ -8,6 +8,7 @@ class HoursTariff extends aTariffs
 
     public function __construct(int $distance, int $time, int $age, bool $gps = false, bool $driver = false)
     {
+        $this->_gpsTime = $time;
         $time = ceil($time / 60);
         parent::__construct($distance, $time, $age, $gps, $driver);
     }

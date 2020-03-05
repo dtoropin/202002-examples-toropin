@@ -14,6 +14,7 @@ abstract class aTariffs implements iTariffs
     protected $_age;
 
     protected $_magnification;
+    protected $_gpsTime;
 
     protected $_services = '';
     protected $_gps;

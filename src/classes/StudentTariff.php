@@ -8,6 +8,7 @@ class StudentTariff extends aTariffs
 
     public function __construct(int $distance, int $time, int $age, bool $gps = false, bool $driver = false)
     {
+        $this->_gpsTime = $time;
         $driver = false;
         parent::__construct($distance, $time, $age, $gps, $driver);
     }
