@@ -1,34 +1,16 @@
 <?php
-require_once './src/functions.php';
+spl_autoload_register(function ($class_name) {
+    include './src/classes/' . $class_name . '.php';
+});
 
-//Задание #3.1
-task1('data.xml');
-echo '<hr>';
+$baseTariffs = new BaseTariff(false, true);
+$baseTariffs->totalPrice(5, 60, 21);
 
-//Задача #3.2
-$movies = [
-    [
-        "title" => "Rear Window",
-        "director" => "Alfred Hitchcock",
-        "year" => 1954
-    ],
-    [
-        "title" => "Full Metal Jacket",
-        "director" => "Stanley Kubrick",
-        "year" => 1987
-    ],
-    [
-        "title" => "Mean Streets",
-        "director" => "Martin Scorsese",
-        "year" => 1973
-    ]
-];
-task2($movies);
-echo '<hr>';
+$baseTariffs = new BaseTariff(false, false);
+$baseTariffs->totalPrice(5, 60, 21);
 
-//Задача #3.3
-task3('arrNumber.csv');
-echo '<hr>';
+$baseTariffs = new BaseTariff(false, false);
+$baseTariffs->totalPrice(5, 60, 31);
 
-//Задача #3.4
-task4('https://en.wikipedia.org/w/api.php?action=query&titles=Main%20Page&prop=revisions&rvprop=content&format=json');
+$baseTariffs = new BaseTariff(false, false);
+$baseTariffs->totalPrice(5, 60, 71);
