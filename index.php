@@ -15,13 +15,13 @@ $tariff->printTotalPrice();
 $tariff = new BaseTariff(5, 60, 31, false, true);
 $tariff->printTotalPrice();
 
-$tariff = new BaseTariff(5, 60, 31, true, true);
-$tariff->printTotalPrice();
-
-$tariff = new BaseTariff(5, 60, 21, false, true);
-$tariff->printTotalPrice();
-
 $tariff = new HoursTariff(5, 90, 27);
+$tariff->printTotalPrice();
+
+$tariff = new HoursTariff(5, 90, 27, false, true);
+$tariff->printTotalPrice();
+
+$tariff = new HoursTariff(5, 90, 27, true, true);
 $tariff->printTotalPrice();
 
 $tariff = new DayTariff(10, (1440 + 29), 27);
