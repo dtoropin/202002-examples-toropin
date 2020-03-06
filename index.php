@@ -12,9 +12,6 @@ $tariff->printTotalPrice();
 $tariff = new BaseTariff(5, 60, 21);
 $tariff->printTotalPrice();
 
-$tariff = new BaseTariff(5, 60, 31, false, true);
-$tariff->printTotalPrice();
-
 $tariff = new HoursTariff(5, 90, 27);
 $tariff->printTotalPrice();
 
@@ -27,7 +24,7 @@ $tariff->printTotalPrice();
 $tariff = new DayTariff(10, (1440 + 29), 27);
 $tariff->printTotalPrice();
 
-$tariff = new StudentTariff(5, 60, 22, false, true);
+$tariff = new StudentTariff(5, 60, 22, false);
 $tariff->printTotalPrice();
 
 $tariff = new BaseTariff(5, 60, 71);

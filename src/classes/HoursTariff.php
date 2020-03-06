@@ -6,20 +6,23 @@ class HoursTariff extends aTariffs
     protected $_rateTime = 200;
     protected $_rateDistance = 0;
 
+    use tDriver;
+
     public function __construct(int $distance, int $time, int $age, bool $gps = false, bool $driver = false)
     {
         $this->_gpsTime = $time;
         $time = ceil($time / 60);
-        parent::__construct($distance, $time, $age, $gps, $driver);
+        if ($driver) {
+            $this->_driver();
+        }
+        parent::__construct($distance, $time, $age, $gps);
     }
 
     public function printTotalPrice()
     {
-        echo $this->_tariffsName
-            . " ($this->_distance км, "
-            . $this->_time . " час, $this->_age лет"
-            . $this->_services . ') = ('
-            . "$this->_distance _ $this->_rateDistance + $this->_time _ $this->_rateTime)";
+        echo $this->_tariffsName . " ($this->_distance км, $this->_time час, $this->_age лет";
+        echo $this->_services ?: ', без доп. услуг';
+        echo ") = ($this->_distance _ $this->_rateDistance + $this->_time _ $this->_rateTime)";
         echo $this->_magnification ? " _ $this->_magnification" : '';
         echo $this->_gps ? " + $this->_gps" : '';
         echo $this->_driver ? " + $this->_driver" : '';

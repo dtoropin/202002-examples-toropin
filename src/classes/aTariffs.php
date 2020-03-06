@@ -23,9 +23,8 @@ abstract class aTariffs implements iTariffs
     protected $_total = 0;
 
     use tGps;
-    use tDriver;
 
-    public function __construct(int $distance, int $time, int $age, bool $gps = false, bool $driver = false)
+    public function __construct(int $distance, int $time, int $age, bool $gps = false)
     {
         $this->_distance = $distance;
         $this->_time = $time;
@@ -33,14 +32,8 @@ abstract class aTariffs implements iTariffs
 
         $this->_checkAge($age);
 
-        if (!$gps && !$driver) {
-            $this->_services .= ', без доп. услуг';
-        }
         if ($gps) {
             $this->_gps();
-        }
-        if ($driver) {
-            $this->_driver();
         }
 
         $this->_totalPrice();
