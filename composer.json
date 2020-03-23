@@ -1,10 +1,10 @@
 {
   "require": {
-    "swiftmailer/swiftmailer": "6.2.*"
+    "illuminate/database": "^5.6"
   },
   "autoload": {
     "psr-4": {
-      "src\\": "src/"
+      "app\\": "app/"
     }
   }
 }
